@@ -1,0 +1,52 @@
+{% include 'blog/header.html' %}
+      <section class="s-content s-content--narrow">
+         <div class="row">
+            <div class="s-content__header col-full">
+               <h1 class="s-content__header-title">
+                  Register Here
+               </h1>
+            </div>
+            <div class="s-content__media col-full">
+               <h3>Fill the required details to login</h3>
+               <form name="" id="loginForm" method="post" action="#">
+                     {% csrf_token %}
+
+                   {% if error_msg %}
+
+                                <div class="col-md-12 form-group p_star alert-info" role="alert" style="color: red">
+                                            {{ error_msg }}
+                                </div>
+
+                            {% endif %}
+                        {% if success %}
+
+                                <div class="col-md-12 form-group p_star alert-info" role="alert" style="color: green">
+                                            {{ success }}
+                                </div>
+
+                            {% endif %}
+
+                  <fieldset>
+                     <div class="form-field">
+                        <input name="cName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+                     </div>
+                     <div class="form-field">
+                        <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
+                     </div>
+                       <div class="form-field">
+                        <input name="cContact" type="text" id="cContact" class="full-width" placeholder="Your Contact" value="">
+                     </div>
+                     <div class="form-field">
+                        <input name="password_one" type="text" id="password_one" class="full-width" placeholder="Enter password" value="">
+                     </div>
+                     <div class="form-field">
+                        <input name="password_two" type="text" id="password_two" class="full-width" placeholder="Re Enter password" value="">
+                     </div>
+                     <button type="submit" value="Register" class="submit btn btn--primary full-width">Register</button>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </section>
+
+{% include 'blog/footer.html' %}

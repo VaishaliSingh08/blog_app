@@ -1,0 +1,47 @@
+
+{% include 'blog/header.html' %}
+
+      <section class="s-content s-content--narrow">
+         <div class="row">
+            <div class="s-content__header col-full">
+               <h1 class="s-content__header-title">
+                  Welcome Back !!
+               </h1>
+            </div>
+            <div class="s-content__media col-full">
+
+              <h3>Fill the credentials to login !!</h3>
+               <form name=""  method="post" action="login">
+                     {% csrf_token %}
+
+                   {% if error_msg %}
+
+                                <div class="col-md-12 form-group p_star alert-info" role="alert" style="color: red">
+                                            {{ error_msg }}
+                                </div>
+
+                            {% endif %}
+                        {% if success %}
+
+                                <div class="col-md-12 form-group p_star alert-info" role="alert" style="color: green">
+                                            {{ success }}
+                                </div>
+
+                            {% endif %}
+
+                  <fieldset>
+                     <div class="form-field">
+                        <input name="cEmail" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+                     </div>
+                     <div class="form-field">
+                        <input name="password" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
+                     </div>
+
+                     <button type="submit" value="Register" class="submit btn btn--primary full-width">Register</button>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </section>
+
+{% include 'blog/footer.html' %}

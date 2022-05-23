@@ -1,0 +1,91 @@
+{% load static %}
+{% include 'dashboard/header.html' %}
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="breadcome-list">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-wp">
+											<div class="breadcomb-icon">
+												<i class="icon nalika-home"></i>
+											</div>
+											<div class="breadcomb-ctn">
+												<h2>Blog List</h2>
+												<p>Welcome <span class="bread-ntd">{{ username }}</span></p>
+											</div>
+										</div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="breadcomb-report">
+											<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="icon nalika-download"></i></button>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Blogs List</h4>
+                            <div class="add-product">
+                                <a href="{% url 'add_blog_post' %}">Add Blog Post</a>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Blog Title</th>
+
+                                    <th>Content</th>
+
+                                    <th>Settings</th>
+                                </tr>
+
+                                <tr>
+                                   {% if message %}
+                                    <td>{{ message }}</td>
+                                    {% endif %}
+                                </tr>
+                            {% for i in p %}
+
+                                <tr>
+                                    <td><img src="{{ i.image }}" alt="" /></td>
+                                    <td>{{ i.title}}</td>
+
+
+                                    <td>{{ i.content}}</td>
+
+                                    <td>
+                                        <a href="{% url 'edit_blog' i.id %}" > <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+
+
+                                        <a href="{% url 'delete' i.id %}" ><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% include 'dashboard/footer.html' %}

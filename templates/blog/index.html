@@ -1,0 +1,54 @@
+{% include 'blog/header.html' %}
+
+<section class="s-content">
+    <div class="row masonry-wrap">
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+            {% for i in blog %}
+            <article class="masonry__brick entry format-standard" data-aos="fade-up">
+                <div class="entry__thumb">
+                    <a href="{{ i.id }}" class="entry__thumb-link">
+                        <img src="{{ i.image }}"
+                             srcset="{{ i.image }} 1x, {{ i.image }} 2x"
+                             alt="">
+                    </a>
+                </div>
+                <div class="entry__text">
+                    <div class="entry__header">
+                        <div class="entry__date">
+                            <a href="{{ i.id }}">{{ i.created_on }}</a>
+                        </div>
+                        <h1 class="entry__title"><a href="{{ i.id }}">{{ i.title }}</a></h1>
+                    </div>
+                    <div class="entry__excerpt">
+                        <p>
+                            {{ i.content|truncatechars:50 }}
+                        </p>
+                    </div>
+
+                </div>
+            </article>
+
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-full">
+            <nav class="pgn">
+                <ul>
+                    <li><a class="pgn__prev" href="#0">Prev</a></li>
+                    <li><a class="pgn__num" href="#0">1</a></li>
+                    <li><span class="pgn__num current">2</span></li>
+                    <li><a class="pgn__num" href="#0">3</a></li>
+                    <li><a class="pgn__num" href="#0">4</a></li>
+                    <li><a class="pgn__num" href="#0">5</a></li>
+                    <li><span class="pgn__num dots">…</span></li>
+                    <li><a class="pgn__num" href="#0">8</a></li>
+                    <li><a class="pgn__next" href="#0">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+{% include 'blog/footer.html' %}

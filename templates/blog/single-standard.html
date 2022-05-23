@@ -1,0 +1,50 @@
+{% include 'blog/header.html' %}
+
+<section class="s-content s-content--narrow s-content--no-padding-bottom">
+    <article class="row format-standard">
+        <div class="s-content__header col-full">
+            <h1 class="s-content__header-title">
+                {{ blog.0.title }}
+            </h1>
+            <ul class="s-content__header-meta">
+                <li class="date">{{ blog.0.created_on }}</li>
+
+            </ul>
+        </div>
+        <div class="s-content__media col-full">
+            <div class="s-content__post-thumb">
+                <img src="{{ blog.0.image }}" srcset="{{ blog.0.image }} 2000w,
+                                 {{ blog.0.image }} 1000w,
+                                {{ blog.0.image }} 500w"
+                     sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+            </div>
+        </div>
+        <div class="col-full s-content__main">
+            <p class="lead">{{ blog.0.content }}
+            </p>
+
+
+
+            <div class="s-content__author">
+                <img src="/static/images/avatars/img.png" alt="">
+                <div class="s-content__author-about">
+                    <h4 class="s-content__author-name">
+                        <a href="#0">{{ username }}</a>
+                    </h4>
+                    <ul class="s-content__author-social">
+                        <li><a href="#0">Facebook</a></li>
+                        <li><a href="#0">Twitter</a></li>
+                        <li><a href="#0">GooglePlus</a></li>
+                        <li><a href="#0">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+
+</section>
+
+
+{% include 'blog/footer.html' %}
